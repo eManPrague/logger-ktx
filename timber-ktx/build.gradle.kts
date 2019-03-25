@@ -26,7 +26,7 @@ android {
     }
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
         }
     }
 
@@ -67,10 +67,11 @@ bintray {
     setPublications(productionPublicName)
     pkg(delegateClosureOf<BintrayExtension.PackageConfig> {
         repo = "maven"
-        name = "logger-ktx"
+        name = "timber-ktx"
         userOrg = "emanprague"
+        override = true
         websiteUrl = "https://www.emanprague.com/en/"
-        githubRepo = "https://github.com/eManPrague/logger-ktx"
+        githubRepo = "eManPrague/logger-ktx"
         vcsUrl = "https://github.com/eManPrague/logger-ktx"
         description = "Simple Logger Extensions written in Kotlin"
         setLabels("kotlin", "logger", "ktx", "android", "timber")
@@ -90,7 +91,6 @@ publishing {
             artifactId = "timber-ktx"
             version = "${project.version}"
         }
-
     }
 
     repositories {

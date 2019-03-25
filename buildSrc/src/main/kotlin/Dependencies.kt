@@ -19,7 +19,7 @@ object Dependencies {
         val junit = "4.12"
         val kotlinTest = "3.3.0"
         val mavenGradleGithub = "1.5"
-        val bintrayGradle = "1.8.0"
+        val bintrayGradle = "1.8.4"
     }
 
     /* =============================  ANDROID ============================= */
