@@ -1,0 +1,23 @@
+*.iml
+*.ipr
+*.iws
+
+.gradle
+/local.properties
+.idea/*
+!.idea/copyright
+/build
+/captures
+.externalNativeBuild
+
+# linux specific files
+.directory
+*.*~
+
+# windows specific files
+Thumbs.db
+thumbs.db
+
+# mac specific files
+.DS_Store
+
