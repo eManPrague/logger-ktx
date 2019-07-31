@@ -1,3 +1,5 @@
+[![Version](https://api.bintray.com/packages/emanprague/maven/timber-ktx/images/download.svg)](https://bintray.com/emanprague/maven/timber-ktx/_latestVersion)
+
 ## Logger KTX
 Logger Android Kotlin extension library. 
 Currently supported log libs:
