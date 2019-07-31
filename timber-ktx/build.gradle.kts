@@ -1,5 +1,4 @@
 import com.jfrog.bintray.gradle.BintrayExtension
-import org.gradle.kotlin.dsl.*
 import org.jetbrains.dokka.gradle.DokkaTask
 
 plugins {
@@ -37,7 +36,7 @@ android {
 
     compileOptions {
         sourceCompatibility = Dependencies.Android.sourceCompatibilityJava
-        setTargetCompatibility(Dependencies.Android.targetCompatibilityJava)
+        targetCompatibility = Dependencies.Android.targetCompatibilityJava
 
     }
 }
@@ -48,6 +47,9 @@ dependencies {
 
     // Timber
     api(Dependencies.Libs.timber)
+    compileOnly(Dependencies.Libs.koin) {
+        exclude(group = "org.jetbrains.kotlin")
+    }
 
     // Tests
     testImplementation(Dependencies.TestLibs.junit)

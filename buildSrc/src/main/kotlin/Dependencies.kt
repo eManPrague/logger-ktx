@@ -14,6 +14,8 @@ object Dependencies {
         const val mavenPublish = "3.6.2"
 
         const val timber = "4.7.1"
+        const val koin = "2.0.1"
+
         const val junit = "4.12"
         const val kotlinTest = "3.3.0"
         const val mavenGradleGithub = "1.5"
@@ -62,6 +64,7 @@ object Dependencies {
         const val appCompat = "androidx.appcompat:appcompat:${Versions.supportLib}"
         const val constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
         const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+        const val koin = "org.koin:koin-core:${Versions.koin}"
     }
 
     /* =============================  TEST-LIBS =========================== */
