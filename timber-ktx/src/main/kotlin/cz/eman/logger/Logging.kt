@@ -124,5 +124,30 @@ inline fun <T : Any> T.logVerbose(message: () -> Any?) {
     Timber.v(message()?.toString() ?: "null")
 }
 
+/**
+ * Call this when logging user actions - (e.g. Button Clicks). Logs with [Log.INFO] severity and tag
+ * as a simple name of the [T].
+ *
+ * @param module name of a module (e.g. Login), can be skipped
+ * @param actionMessage the messsage of the user action (e.g. "user clicked button xy")
+ */
+inline fun <T : Any> T.logUserAction(module: String? = null, actionMessage: () -> String) {
+    Timber.tag(this::class.java.simpleName)
+    val prefix = if (module == null) "" else "$module | "
+    Timber.i("${prefix}User action | ${actionMessage()}")
+}
+
+/**
+ * Call this when logging events - (e.g. state changes). Logs with [Log.DEBUG] severity and
+ * tag as a simple name of the [T].
+ *
+ * @param module name of a module (e.g. Login), can be skipped
+ * @param eventMessage the messsage of the event (e.g. "New ViewModel state is xy")
+ */
+inline fun <T : Any> T.logEvent(module: String? = null, eventMessage: () -> String) {
+    Timber.tag(this::class.java.simpleName)
+    val prefix = if (module == null) "" else "$module | "
+    Timber.d("${prefix}Event | ${eventMessage()}")
+}
 
 

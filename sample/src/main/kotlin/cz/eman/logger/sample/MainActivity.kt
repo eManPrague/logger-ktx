@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import cz.eman.logger.logDebug
 import cz.eman.logger.logError
+import cz.eman.logger.logEvent
+import cz.eman.logger.logUserAction
 
 /**
  * @author vsouhrada (vaclav.souhrada@eman.cz)
@@ -19,6 +21,10 @@ class MainActivity : AppCompatActivity() {
         logDebug { "Hello! I'm debug logger as lambda function" }
 
         logError { "Boo! Error log is here!!!" }
+
+        logEvent("Login") { "Function returned success result"}
+
+        logUserAction("Login") { "User clicked Submit button"}
     }
 
 }
