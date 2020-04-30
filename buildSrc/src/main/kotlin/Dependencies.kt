@@ -6,11 +6,11 @@ object Dependencies {
         const val supportLib = "1.0.0"
         const val constraintlayout = "1.1.2"
 
-        const val kotlin = "1.3.21"
+        const val kotlin = "1.3.72"
         const val dokka = "0.9.17"
 
-        const val gradle = "5.2.1"
-        const val gradleBuildTools = "3.3.1"
+        const val gradle = "6.2.2"
+        const val gradleBuildTools = "3.6.2"
         const val mavenPublish = "3.6.2"
 
         const val timber = "4.7.1"
