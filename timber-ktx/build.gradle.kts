@@ -72,6 +72,37 @@ afterEvaluate {
                 from(components["release"])
                 artifact(dokkaHtmlJar)
                 artifact(sourcesJar)
+
+                pom {
+                    name.set("Timber KTX")
+                    description.set("Simple Logger Extensions written in Kotlin")
+                    url.set("https://emanprague.github.io/logger-ktx")
+
+                    licenses {
+                        license {
+                            name.set("MIT License")
+                            url.set("https://opensource.org/licenses/MIT")
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            name.set("eMan a.s.")
+                            email.set("info@eman.cz")
+                        }
+                    }
+
+                    scm {
+                        connection.set("scm:git:git://github.com/eManPrague/logger-ktx.git")
+                        developerConnection.set("scm:git:ssh://git@github.com/eManPrague/logger-ktx.git")
+                        url.set("https://github.com/eManPrague/logger-ktx")
+                    }
+
+                    issueManagement {
+                        system.set("GitHub Issues")
+                        url.set("https://github.com/eManPrague/logger-ktx/issues")
+                    }
+                }
             }
         }
 
