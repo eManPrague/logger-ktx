@@ -1,19 +1,45 @@
-[![Version](https://api.bintray.com/packages/emanprague/maven/timber-ktx/images/download.svg)](https://bintray.com/emanprague/maven/timber-ktx/_latestVersion)
+[![Latest version](https://img.shields.io/github/v/release/eManPrague/logger-ktx)](https://github.com/eManPrague/logger-ktx/releases/tag/v0.2.0)
 
 ## Logger KTX
 Logger Android Kotlin extension library. 
 Currently supported log libs:
 * [Timber](https://github.com/JakeWharton/timber) by Jake Wharton
 
+### Usage
+:warning: The artifacts were moved from JCenter.
+
+All artifacts are available and distributed using the [eMan Nexus](https://nexus.eman.cz/service/rest/repository/browse/maven-public/) repository.
+Add the repository to project `build.gradle.kts` (`build.gradle`) file.
+
+```kotlin
+allprojects {
+
+    repositories {
+        ...
+        maven(url = "https://nexus.eman.cz/repository/maven-public")
+    }
+}
+```
+
+```groovy
+allprojects {
+
+    repositories {
+        ...
+        maven { url 'https://nexus.eman.cz/repository/maven-public' }
+    }
+}
+```
+
 ### Download
 
 #### Timber Extension
 ```groovy
-implementation 'cz.eman.logger:timber-ktx:{latest_version}'
+implementation 'cz.eman.logger:timber-ktx:0.2.0'
 ```
 
 ```kotlin
-implementation("cz.eman.logger:timber-ktx:{latest_version}")
+implementation("cz.eman.logger:timber-ktx:0.2.0")
 ```
 
 ### Sample
