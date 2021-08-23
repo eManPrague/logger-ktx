@@ -7,7 +7,7 @@ buildscript {
     }
 
     dependencies {
-        classpath(Dependencies.BuildPlugins.androidGradle)
+        classpath(Dependencies.BuildPlugins.android)
         classpath(Dependencies.BuildPlugins.kotlin)
         classpath(Dependencies.BuildPlugins.dokka)
     }
@@ -20,11 +20,10 @@ allprojects {
     }
 }
 
-/*task wrapper(type: Wrapper) {
-    gradleVersion versions.gradle
-    //noinspection UnnecessaryQualifiedReference
-    distributionType Wrapper.DistributionType.ALL
-}*/
+tasks.getByName<Wrapper>("wrapper") {
+    gradleVersion = Dependencies.Versions.gradle
+    distributionType = Wrapper.DistributionType.BIN
+}
 
 tasks.create<Delete>("clean") {
     delete(rootProject.buildDir)

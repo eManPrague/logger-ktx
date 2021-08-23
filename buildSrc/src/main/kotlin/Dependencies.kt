@@ -3,8 +3,8 @@ import org.gradle.api.JavaVersion
 object Dependencies {
 
     object Versions {
-        const val supportLib = "1.0.0"
-        const val constraintlayout = "1.1.2"
+        const val appCompat = "1.0.0"
+        const val constraintLayout = "1.1.2"
 
         const val kotlin = "1.3.72"
         const val dokka = "1.5.0"
@@ -16,7 +16,6 @@ object Dependencies {
         const val koin = "2.0.1"
 
         const val junit = "4.12"
-        const val kotlinTest = "3.3.0"
     }
 
     /* =============================  ANDROID ============================= */
@@ -30,7 +29,7 @@ object Dependencies {
 
         const val versionCode = 1
 
-        const val testInstrumentRunner = "android.support.test.runner.AndroidJUnitRunner"
+        const val testInstrumentRunner = "androidx.test.runner.AndroidJUnitRunner"
         val sourceCompatibilityJava = JavaVersion.VERSION_1_8
         val targetCompatibilityJava = JavaVersion.VERSION_1_8
     }
@@ -41,7 +40,7 @@ object Dependencies {
         const val encoding = "UTF-8"
         const val gradle = Versions.gradle
 
-        const val androidGradle = "com.android.tools.build:gradle:${Versions.gradleBuildTools}"
+        const val android = "com.android.tools.build:gradle:${Versions.gradleBuildTools}"
         const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
         const val dokka = "org.jetbrains.dokka:dokka-gradle-plugin:${Versions.dokka}"
     }
@@ -49,14 +48,14 @@ object Dependencies {
     /* =============================  KOTLIN ============================== */
 
     object Kotlin {
-        const val kotlinStbLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
+        const val standardLibrary = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
     }
 
     /* =============================  LIBS ================================ */
 
     object Libs {
-        const val appCompat = "androidx.appcompat:appcompat:${Versions.supportLib}"
-        const val constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
+        const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
+        const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
         const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
         const val koin = "io.insert-koin:koin-core:${Versions.koin}"
     }
@@ -65,6 +64,5 @@ object Dependencies {
 
     object TestLibs {
         const val junit = "junit:junit:${Versions.junit}"
-        const val kotlinTest = "io.kotlintest:kotlintest-runner-junit5:${Versions.kotlinTest}"
     }
 }

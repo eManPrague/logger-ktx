@@ -1,7 +1,6 @@
 plugins {
     id("com.android.application")
     kotlin("android")
-    id("kotlin-android-extensions")
 }
 
 android {
@@ -32,20 +31,16 @@ android {
 
     compileOptions {
         sourceCompatibility = Dependencies.Android.sourceCompatibilityJava
-        setTargetCompatibility(Dependencies.Android.targetCompatibilityJava)
+        targetCompatibility = Dependencies.Android.targetCompatibilityJava
     }
 }
 
 dependencies {
     implementation(project(":timber-ktx"))
 
-    // Support Libraries
+    implementation(Dependencies.Kotlin.standardLibrary)
     implementation(Dependencies.Libs.appCompat)
+    implementation(Dependencies.Libs.constraintLayout)
 
-    // Kotlin
-    implementation(Dependencies.Kotlin.kotlinStbLib)
-
-    // Tests
-    implementation(Dependencies.Libs.constraintlayout)
     testImplementation(Dependencies.TestLibs.junit)
 }

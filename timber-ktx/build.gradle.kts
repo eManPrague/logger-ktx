@@ -16,8 +16,8 @@ android {
         versionName = "${project.version}"
 
         testInstrumentationRunner = Dependencies.Android.testInstrumentRunner
-
     }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -32,21 +32,16 @@ android {
     compileOptions {
         sourceCompatibility = Dependencies.Android.sourceCompatibilityJava
         targetCompatibility = Dependencies.Android.targetCompatibilityJava
-
     }
 }
 
 dependencies {
-    // Kotlin
-    implementation(Dependencies.Kotlin.kotlinStbLib)
-
-    // Timber
+    implementation(Dependencies.Kotlin.standardLibrary)
     api(Dependencies.Libs.timber)
     compileOnly(Dependencies.Libs.koin) {
         exclude(group = "org.jetbrains.kotlin")
     }
 
-    // Tests
     testImplementation(Dependencies.TestLibs.junit)
 }
 
