@@ -54,8 +54,6 @@ dependencies {
     testImplementation(Dependencies.TestLibs.junit)
 }
 
-fun findProperty(s: String) = project.findProperty(s) as String?
-
 group = "${project.property("groupId")}"
 version = "${project.version}"
 
