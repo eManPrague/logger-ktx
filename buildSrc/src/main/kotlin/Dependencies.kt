@@ -7,7 +7,7 @@ object Dependencies {
         const val constraintlayout = "1.1.2"
 
         const val kotlin = "1.3.72"
-        const val dokka = "0.9.17"
+        const val dokka = "1.5.0"
 
         const val gradle = "6.2.2"
         const val gradleBuildTools = "3.6.2"
@@ -64,7 +64,7 @@ object Dependencies {
         const val appCompat = "androidx.appcompat:appcompat:${Versions.supportLib}"
         const val constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
         const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
-        const val koin = "org.koin:koin-core:${Versions.koin}"
+        const val koin = "io.insert-koin:koin-core:${Versions.koin}"
     }
 
     /* =============================  TEST-LIBS =========================== */

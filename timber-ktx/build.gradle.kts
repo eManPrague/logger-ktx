@@ -1,5 +1,4 @@
 import com.jfrog.bintray.gradle.BintrayExtension
-import org.jetbrains.dokka.gradle.DokkaTask
 
 plugins {
     id("com.android.library")
@@ -100,21 +99,7 @@ publishing {
     }
 }
 
-val dokka by tasks.getting(DokkaTask::class) {
-    moduleName = "timber-ktx"
-    outputFormat = "html" // html, md, javadoc,
-    outputDirectory = "$buildDir/dokka/html"
-    sourceDirs = files("src/main/kotlin")
-}
-
-val dokkaJavadoc = tasks.create<DokkaTask>("dokkaJavadoc") {
-    outputFormat = "javadoc"
-    outputDirectory = "$buildDir/dokka/javadoc"
-    //processConfigurations = ["compile"]
-    sourceDirs = files("src/main/kotlin")
-    dependsOn(dokka)
-}
-
+val dokka by tasks.dokkaHtml
 tasks {
 
 
@@ -125,19 +110,12 @@ tasks {
 
     val androidDokkaHtmlJar by creating(Jar::class) {
         archiveClassifier.set("kdoc-html")
-        from("$buildDir/dokka/html")
+        from(dokka.outputDirectory)
         dependsOn(dokka)
-    }
-
-    val androidDokkaJavadocJar by creating(Jar::class) {
-        archiveClassifier.set("kdoc-javadoc")
-        from("$buildDir/dokka/javadocs")
-        dependsOn(dokkaJavadoc)
     }
 
     artifacts {
         add("archives", androidSourcesJar)
         add("archives", androidDokkaHtmlJar)
-        add("archives", androidDokkaJavadocJar)
     }
 }
