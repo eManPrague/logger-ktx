@@ -1,12 +1,8 @@
-import com.jfrog.bintray.gradle.BintrayExtension
-
 plugins {
     id("com.android.library")
     kotlin("android")
     id("org.jetbrains.dokka")
-    id("digital.wup.android-maven-publish")
-    id("com.github.dcendents.android-maven")
-    id("com.jfrog.bintray")
+    id("maven-publish")
 }
 
 android {
@@ -57,63 +53,37 @@ dependencies {
 group = "${project.property("groupId")}"
 version = "${project.version}"
 
-val productionPublicName = "production"
-
-bintray {
-    user = findProperty("bintray.user")
-    key = findProperty("bintray.apikey")
-    publish = true
-    setPublications(productionPublicName)
-    pkg(delegateClosureOf<BintrayExtension.PackageConfig> {
-        repo = "maven"
-        name = "timber-ktx"
-        userOrg = "emanprague"
-        override = true
-        websiteUrl = "https://www.emanprague.com/en/"
-        githubRepo = "eManPrague/logger-ktx"
-        vcsUrl = "https://github.com/eManPrague/logger-ktx"
-        description = "Simple Logger Extensions written in Kotlin"
-        setLabels("kotlin", "logger", "ktx", "android", "timber")
-        setLicenses("MIT")
-        desc = description
-    })
-}
-
-/**
- *  Publish to nexus repo
- */
-publishing {
-    publications {
-        register(productionPublicName, MavenPublication::class) {
-            from(components["android"])
-            groupId = "${project.property("groupId")}"
-            artifactId = "timber-ktx"
-            version = "${project.version}"
-        }
-    }
-
-    repositories {
-        maven(url = "http://dl.bintray.com/emanprague/maven")
-    }
-}
-
 val dokka by tasks.dokkaHtml
-tasks {
+val dokkaHtmlJar by tasks.creating(Jar::class) {
+    archiveClassifier.set("kdoc-html")
+    from(dokka.outputDirectory)
+    dependsOn(dokka)
+}
 
+val sourcesJar by tasks.creating(Jar::class) {
+    archiveClassifier.set("sources")
+    from(android.sourceSets["main"].java.srcDirs)
+}
 
-    val androidSourcesJar by creating(Jar::class) {
-        archiveClassifier.set("sources")
-        from(android.sourceSets["main"].java.srcDirs)
-    }
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                artifact(dokkaHtmlJar)
+                artifact(sourcesJar)
+            }
+        }
 
-    val androidDokkaHtmlJar by creating(Jar::class) {
-        archiveClassifier.set("kdoc-html")
-        from(dokka.outputDirectory)
-        dependsOn(dokka)
-    }
+        repositories {
+            maven(url = "https://nexus.eman.cz/repository/maven-public") {
+                name = "Nexus"
 
-    artifacts {
-        add("archives", androidSourcesJar)
-        add("archives", androidDokkaHtmlJar)
+                credentials {
+                    username = getPropertyOrNull("nexus.username")
+                    password = getPropertyOrNull("nexus.password")
+                }
+            }
+        }
     }
 }

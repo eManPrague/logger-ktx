@@ -11,15 +11,12 @@ object Dependencies {
 
         const val gradle = "6.2.2"
         const val gradleBuildTools = "3.6.2"
-        const val mavenPublish = "3.6.2"
 
         const val timber = "4.7.1"
         const val koin = "2.0.1"
 
         const val junit = "4.12"
         const val kotlinTest = "3.3.0"
-        const val mavenGradleGithub = "1.5"
-        const val bintrayGradle = "1.8.4"
     }
 
     /* =============================  ANDROID ============================= */
@@ -47,9 +44,6 @@ object Dependencies {
         const val androidGradle = "com.android.tools.build:gradle:${Versions.gradleBuildTools}"
         const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
         const val dokka = "org.jetbrains.dokka:dokka-gradle-plugin:${Versions.dokka}"
-        const val mavenPublish = "digital.wup:android-maven-publish:${Versions.mavenPublish}"
-        const val androidMavenGradle = "com.github.dcendents:android-maven-gradle-plugin:${Versions.mavenGradleGithub}"
-        const val bintrayGradle = "com.jfrog.bintray.gradle:gradle-bintray-plugin:${Versions.bintrayGradle}"
     }
 
     /* =============================  KOTLIN ============================== */
